@@ -1,0 +1,80 @@
+#include<stdio.h>
+#include<string.h>
+char mah[84000][6],goru[10];
+ unsigned long a,b,i,j,k,l,m,n,p,q; 
+void reset()
+{
+	n=0;
+	for(i=0;i<26;i++)
+	{
+		mah[n][0]='a'+i;
+		n++;
+	}
+	for(i=0;i<25;i++)
+	for(j=i+1;j<26;j++)
+	{
+		mah[n][0]='a'+i;
+		mah[n][1]='a'+j;
+		n++;
+	}
+	for(i=0;i<24;i++)
+		for(j=i+1;j<25;j++)
+			for(k=j+1;k<26;k++)
+			{
+				mah[n][0]='a'+i;
+				mah[n][1]='a'+j;
+				mah[n][2]='a'+k;
+				n++;
+			}
+	for(i=0;i<23;i++)
+		for(j=i+1;j<24;j++)
+			for(k=j+1;k<25;k++)
+				for(l=k+1;l<26;l++)
+				{
+					mah[n][0]='a'+i;
+					mah[n][1]='a'+j;
+					mah[n][2]='a'+k;
+					mah[n][3]='a'+l;
+				n++;
+				}
+	for(i=0;i<22;i++)
+	{
+		for(j=i+1;j<23;j++)
+		{
+			for(k=j+1;k<24;k++)
+			{
+				for(l=k+1;l<25;l++)
+				{
+					for(m=l+1;m<26;m++)
+					{
+					mah[n][0]='a'+i;
+					mah[n][1]='a'+j;
+					mah[n][2]='a'+k;
+					mah[n][3]='a'+l;
+					mah[n][4]='a'+m;
+					n++;
+					}	
+				}
+			}
+		}
+	}		
+}
+ int main()
+{
+
+reset();
+	while(scanf("%s",&goru)==1)
+	{int c=0;
+		for(i=0;i<n;i++)
+		{
+			if(strcmp(goru,mah[i])==0)
+			{
+				c=1;
+				printf("%ld\n",i+1);
+			}
+		}
+		if(c==0)
+			printf("0\n");
+	}
+	return 0;
+}
